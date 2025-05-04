@@ -1,0 +1,62 @@
++ Local
+menu = Local Network
+title = Local Network
+
+++ LocalMachine
+menu = Local Machine
+title = This Machine
+host = localhost
+
++ Internet
+menu = Internet
+title = Internet Connectivity
+
+++ GoogleDNS
+menu = Google DNS
+title = Google DNS
+host = 8.8.8.8
+
+++ CloudflareDNS
+menu = Cloudflare DNS
+title = Cloudflare DNS
+host = 1.1.1.1
+
+++ OpenDNS
+menu = OpenDNS
+title = OpenDNS
+host = 208.67.222.222
+
++ DNSProvider
+menu = DNS Provider
+title = DNS Provider
+
+probe = DNS
+
+++ GoogleDNS
+menu = Google DNS
+title = Google DNS Lookup Time
+host = 8.8.8.8
+
+++ CloudflareDNS
+menu = Cloudflare DNS
+title = Cloudflare DNS Lookup Time
+host = 1.1.1.1
+
++ WebSites
+menu = Websites
+title = Website Monitoring
+
+++ Google
+menu = Google
+title = Google Website
+host = www.google.com
+
+++ GitHub
+menu = GitHub
+title = GitHub Website
+host = github.com
+
+++ Debian
+menu = Debian
+title = Debian Website
+host = www.debian.org

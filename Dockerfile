@@ -71,8 +71,6 @@ RUN mkdir -p /var/run/smokeping
 RUN mkdir -p /opt/smokeping/var/cache
 RUN mkdir -p /opt/smokeping/var/images
 RUN mkdir -p /opt/smokeping/etc
-COPY smokeping-config/config /opt/smokeping/etc/
-COPY smokeping-config/targets /opt/smokeping/etc/
 RUN chown -R www-data:www-data /opt/smokeping/var
 RUN chown -R www-data:www-data /var/run/smokeping
 

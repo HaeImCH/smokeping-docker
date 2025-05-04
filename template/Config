@@ -1,0 +1,97 @@
+*** General ***
+
+owner    = Smokeping Admin
+contact  = admin@example.com
+mailhost = localhost
+sendmail = /usr/sbin/sendmail
+imgcache = /opt/smokeping/var/cache
+imgurl   = cache
+datadir  = /opt/smokeping/var
+piddir   = /var/run/smokeping
+cgiurl   = http://localhost/smokeping.cgi
+
+*** Alerts ***
+to = alertee@example.com
+from = smokealert@example.com
+
++bigloss
+type = loss
+# These settings can be customized
+pattern = ==========================
+comment = Loss patterns
+
++rttdetect
+type = rtt
+# These settings can be customized
+pattern = ==============================
+comment = Round trip time patterns
+
+*** Database ***
+
+step     = 300
+pings    = 20
+
+# Set RRD data directory
+RAWMODE  = yes
+NORRDTOOL = no
+
+*** Presentation ***
+
+template = /opt/smokeping/etc/basepage.html
+htmltitle = Smokeping Dashboard
+charts_dir = /opt/smokeping/etc/charts.d
+
++ charts
+
+menu = Charts
+title = Charts
+
+++ stddev
+sorter = StdDev(entries=>4)
+title = Top Standard Deviation
+menu = Std Deviation
+format = Standard Deviation %f
+
+++ max
+sorter = Max(entries=>5)
+title = Top Max Roundtrip Time
+menu = by Max
+format = Max Round Trip Time %f seconds
+
+++ loss
+sorter = Loss(entries=>5)
+title = Top Loss
+menu = Loss
+format = Loss: %f
+
+++ median
+sorter = Median(entries=>5)
+title = Top Median Roundtrip Time
+menu = by Median
+format = Median RTT %f seconds
+
+*** Probes ***
+
++ FPing
+binary = /usr/bin/fping
+step = 300
+pings = 20
+timeout = 500
+packetsize = 500
+
++ DNS
+binary = /usr/bin/dig
+lookup = google.com
+pings = 5
+step = 300
+
+*** Targets ***
+
+probe = FPing
+
+menu = Top
+title = Network Latency Monitoring
+remark = Welcome to the Smokeping Docker container. \
+         This installation is managed using Docker.
+
+@include /opt/smokeping/etc/targets
